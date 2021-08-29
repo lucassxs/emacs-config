@@ -52,7 +52,7 @@
    (setq  neo-theme (if (display-graphic-p) 'icons 'arrow)))
   :bind (("C-\\" . 'neotree-toggle))) ;; tecla atalho
 
-;; Desenvolvimento Web
+;; Desenvolvimento Web config
 (use-package web-mode
   :ensure t)
 
