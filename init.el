@@ -28,13 +28,17 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+;; Pacote para testar outros pacotes dentro do emacs =p
 (use-package try
   :ensure t)
 
+;; Which key
 (use-package which-key
   :ensure t
   :config (which-key-mode))
 
+
+;; Autocomplete 
 (use-package auto-complete
   :ensure t
   :init
@@ -42,30 +46,17 @@
     (ac-config-default)
     (global-auto-complete-mode t)))
 
-(use-package all-the-icons
-  :ensure t)
-
-(use-package neotree
-  :ensure t
-  :config
-  (progn
-   (setq  neo-theme (if (display-graphic-p) 'icons 'arrow)))
-  :bind (("C-\\" . 'neotree-toggle))) ;; tecla atalho
-
-;; Desenvolvimento Web
-(use-package web-mode
-  :ensure t)
+;; Habilita o elcord
+(require 'elcord)
+(elcord-mode)
 
 
-
-;; melpa stuff
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(web-mode melancholy-theme melancholy-them elcord all-the-icons neotree auto-complete try use-package)))
+ '(package-selected-packages (quote (elcord auto-complete try use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
