@@ -50,6 +50,10 @@
 (require 'elcord)
 (elcord-mode)
 
+(add-to-list 'load-path "/some/path/neotree")
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
