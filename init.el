@@ -1,3 +1,8 @@
+;; Personal Emacs config
+;; Author: Lucas Stfano
+;; Date: Jan 23 2022
+
+
 ;; Remover boas vindas
 (setq inhibit-startup-message t)
 
@@ -8,27 +13,29 @@
 ;; Remover barra de rolagem
 (scroll-bar-mode -1)
 
-;; Numero de linhas
+;; Número de linhas
 (global-linum-mode t)
 
 ;; Tamanho da fonte
-(set-face-attribute 'default nil :height 150)
+(set-face-attribute 'default nil :height 130)
 
 ;; Pacotes
 (require 'package)
-(setq package-enable-at-startup nil) ; desabilitar inicio de ativacao
+(setq package-enable-at-startup nil); desabilitar inicio de ativação
 
-; MELPA - Repositório
+;; Adicionar MELPA :)
 (add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/"))
+	     '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
-(package-initialize) ; iniciar pacotes
+;; Inicia pacotes
+(package-initialize)
 
+;; Adiciona use-package
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
 
-;; Pacote para testar outros pacotes dentro do emacs =p
+;; Pacote para testar outros pacotes dentro do emacs :p
 (use-package try
   :ensure t)
 
@@ -38,7 +45,7 @@
   :config (which-key-mode))
 
 
-;; Autocomplete 
+;; Autocomplete
 (use-package auto-complete
   :ensure t
   :init
@@ -46,13 +53,7 @@
     (ac-config-default)
     (global-auto-complete-mode t)))
 
-;; Habilita o elcord
-(require 'elcord)
-(elcord-mode)
 
-(add-to-list 'load-path "/some/path/neotree")
-(require 'neotree)
-(global-set-key [f8] 'neotree-toggle)
 
 
 (custom-set-variables
@@ -60,7 +61,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (elcord auto-complete try use-package))))
+ '(package-selected-packages '(which-key ## try use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
